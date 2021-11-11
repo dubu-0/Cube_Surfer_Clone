@@ -1,17 +1,17 @@
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(MeshRenderer))]
 public class Track : MonoBehaviour
 {
-    private BoxCollider _myCollider;
+    private MeshRenderer _meshRenderer;
     private float _leftBoundary;
     private float _rightBoundary;
 
     private void Start()
     {
-        _myCollider = GetComponent<BoxCollider>();
-        _leftBoundary = _myCollider.bounds.min.x;
-        _rightBoundary = _myCollider.bounds.max.x;
+        _meshRenderer = GetComponent<MeshRenderer>();
+        _leftBoundary = _meshRenderer.bounds.min.x;
+        _rightBoundary = _meshRenderer.bounds.max.x;
     }
 
     public (float, float) GetBoundaries() => (_leftBoundary, _rightBoundary);

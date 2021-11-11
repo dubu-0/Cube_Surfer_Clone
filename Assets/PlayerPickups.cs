@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class PlayerPickups : MonoBehaviour
 {
+    [SerializeField] private NonAnimatedParent parent;
+
     private readonly Stack<IPickupable> _pickups = new Stack<IPickupable>();
 
     private void OnTriggerEnter(Collider other)
@@ -18,5 +20,5 @@ public class PlayerPickups : MonoBehaviour
         _pickups.Push(pickup);
     }
 
-    private void MovePlayerUp(float y) => transform.root.position += new Vector3(0, y, 0);
+    private void MovePlayerUp(float y) => parent.transform.position += new Vector3(0, y, 0);
 }
