@@ -10,7 +10,7 @@ public class TrackCube : MonoBehaviour, IPickupable
 
     public GameObject GO => gameObject;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
         other.gameObject.GetComponent<IObstacle>()?.StopTrespasser(this);
     }
