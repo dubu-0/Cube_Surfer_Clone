@@ -29,12 +29,12 @@ namespace Player
             var pickupableTransform = pickupable.GO.transform;
             
             pickupableTransform.parent = transform;
-            pickupableTransform.localPosition = Vector3.Scale(Vector3.up, pickupableTransform.lossyScale) * _pickupsCount;
-            pickupableTransform.localPosition = new Vector3(0, pickupableTransform.localPosition.y - _pickupsCount * 0.15f, 0);
-            _lastPickup.SpringJoint.connectedBody = pickupable.Rigidbody;
-            _lastPickup = pickupable;
+            pickupableTransform.localPosition = Vector3.Scale(transform.up, pickupableTransform.lossyScale) * _pickupsCount * 0.95f;
+            pickupableTransform.localPosition = new Vector3(0, pickupableTransform.localPosition.y, 0);
 
             _pickupsCount = transform.childCount;
+            _lastPickup.SpringJoint.connectedBody = pickupable.Rigidbody;
+            _lastPickup = transform.GetChild(_pickupsCount - 1).GetComponent<IPickupable>();
         }
 
         public void UpdatePickups()
