@@ -1,4 +1,3 @@
-using System;
 using Interfaces;
 using Player;
 using UnityEngine;
@@ -12,7 +11,7 @@ namespace Cubes_On_Track
         [SerializeField] private PlayerPickups pickups;
 
         private bool _pickedUp;
-        private bool _parentedToWall;
+        private bool _parentedToOther;
         
         public SpringJoint SpringJoint { get; private set; }
         public Rigidbody Rigidbody { get; private set; }
@@ -25,20 +24,25 @@ namespace Cubes_On_Track
             GO = gameObject;
         }
 
+        private void OnTransformParentChanged()
+        {
+            if (_parentedToOther || transform.parent == pickups.transform) return;
+
+            _parentedToOther = true;
+            
+            Destroy(this);
+            Destroy(SpringJoint);
+            Destroy(Rigidbody);
+            
+            pickups.UpdatePickups();
+            Destroy(gameObject, 3f);
+        }
+        
         public void Pickup()
         {
             if (_pickedUp) return;
             pickups.Add(this);
             _pickedUp = true;
-        }
-
-        private void OnTransformParentChanged()
-        {
-            if (_parentedToWall || transform.parent == pickups.transform) return;
-
-            _parentedToWall = true;
-            pickups.Remove();
-            Destroy(gameObject, 3f);
         }
     }
 }
