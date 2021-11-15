@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Player
@@ -6,24 +7,30 @@ namespace Player
     {
         [SerializeField] private float speed;
         [SerializeField] private Track.Track track;
-
-        private const string Horizontal = nameof(Horizontal);
+        
+        private float _initialMousePosX;
+        private float _deltaX;
 
         private void Update()
         {
-            Strafe(Input.GetAxis(Horizontal), track.GetBoundaries());
+            if (Input.GetMouseButtonDown(0))
+                _initialMousePosX = Input.mousePosition.x;
+            
+            Strafe(track.GetBoundaries());
         }
 
-        private void Strafe(float horizontal, (float, float) boundaries)
+        private void Strafe((float, float) boundaries)
         {
-            if (horizontal == 0) return;
+            if (!Input.GetMouseButton(0)) return;
 
-            var velocity = Vector3.right * speed * Time.deltaTime;
-            var newPos = Mathf.Sign(horizontal) * velocity + transform.localPosition;
+            _deltaX = Input.mousePosition.x - _initialMousePosX;
+
+            var strafeStep = speed * _deltaX * Time.deltaTime;
+            var currentPos = transform.localPosition;
+            currentPos.x = Mathf.Clamp(currentPos.x + strafeStep, boundaries.Item1 + 0.5f, boundaries.Item2 - 0.5f);
+            transform.localPosition = currentPos;
             
-            var clampedX = Mathf.Clamp(newPos.x, boundaries.Item1 + 0.5f, boundaries.Item2 - 0.5f);
-            
-            transform.localPosition = new Vector3(clampedX, newPos.y, newPos.z);
+            _initialMousePosX = Input.mousePosition.x;
         }
     }
 }

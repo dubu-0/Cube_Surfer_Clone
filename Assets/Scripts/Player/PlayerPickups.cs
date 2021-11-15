@@ -19,7 +19,6 @@ namespace Player
         private void OnTriggerEnter(Collider other)
         {
             other.gameObject.GetComponent<IPickupable>()?.Pickup();
-            Debug.Log(_pickupsCount);
         }
 
         public void Add(IPickupable pickupable)
@@ -40,8 +39,6 @@ namespace Player
         public void UpdatePickups()
         {
             _pickupsCount = transform.childCount;
-
-            Debug.Log(_pickupsCount + " after remove");
 
             if (_pickupsCount < 1)
             {
