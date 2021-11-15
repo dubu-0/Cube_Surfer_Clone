@@ -9,11 +9,16 @@ namespace Player
 {
     public class PlayerPickups : MonoBehaviour
     {
+        [SerializeField] private AudioSource pickupSound;
+        [SerializeField] private AudioSource removeSound;
+        
         private static IPickupable _lastPickup;
         private int _pickupsCount;
+        private Camera _main;
 
         private void OnEnable()
         {
+            _main = Camera.main;
             _lastPickup = GetComponentInChildren<IPickupable>();
             _pickupsCount = transform.childCount;
         }
@@ -27,6 +32,10 @@ namespace Player
         {
             if (pickupable == null) return;
 
+            Handheld.Vibrate();
+            pickupSound.pitch = Random.Range(0.93f, 1.07f);
+            pickupSound.Play();
+            
             var pickupableTransform = pickupable.GO.transform;
             
             pickupableTransform.parent = transform;
@@ -40,6 +49,10 @@ namespace Player
 
         public void UpdatePickups()
         {
+            Handheld.Vibrate();
+            removeSound.pitch = Random.Range(0.93f, 1.07f);
+            removeSound.PlayOneShot(removeSound.clip);
+            
             _pickupsCount = transform.childCount;
 
             if (_pickupsCount < 1)
