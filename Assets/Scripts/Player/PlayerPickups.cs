@@ -1,7 +1,9 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Interfaces;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Player
 {
@@ -42,12 +44,18 @@ namespace Player
 
             if (_pickupsCount < 1)
             {
-                Debug.Log("You Lost");
+                StartCoroutine(WaitAndRestartCurrentScene());
             }
             else
             {
                 _lastPickup = transform.GetChild(_pickupsCount - 1).GetComponent<IPickupable>();
             }
+        }
+
+        private IEnumerator WaitAndRestartCurrentScene()
+        {
+            yield return new WaitForSeconds(1.5f);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
