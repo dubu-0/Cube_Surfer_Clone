@@ -1,30 +1,33 @@
 using Player;
 using UnityEngine;
 
-public class Turner : MonoBehaviour
+namespace Track
 {
-    [SerializeField] private Vector3 direction;
-    [SerializeField] private Track.Track next;
-
-    private bool _turned;
-
-    private void OnTriggerEnter(Collider other)
+    public class Turner : MonoBehaviour
     {
-        var player = other.gameObject.GetComponent<PlayerPickups>();
-        if (player == null || _turned) return;
-        
-        var playerRoot = player.gameObject.transform.root;
-        playerRoot.parent = transform;
-        
-        var rootLocalPos = playerRoot.localPosition;
-        rootLocalPos.x = 0;
-        rootLocalPos.z = 0;
+        [SerializeField] private Vector3 direction;
+        [SerializeField] private global::Track.Track next;
 
-        playerRoot.localPosition = rootLocalPos;
-        playerRoot.parent = null;
-        playerRoot.forward = direction;
+        private bool _turned;
 
-        _turned = true;
-        enabled = false;
+        private void OnTriggerEnter(Collider other)
+        {
+            var player = other.gameObject.GetComponent<PlayerPickups>();
+            if (player == null || _turned) return;
+        
+            var playerRoot = player.gameObject.transform.root;
+            playerRoot.parent = transform;
+        
+            var rootLocalPos = playerRoot.localPosition;
+            rootLocalPos.x = 0;
+            rootLocalPos.z = 0;
+
+            playerRoot.localPosition = rootLocalPos;
+            playerRoot.parent = null;
+            playerRoot.forward = direction;
+
+            _turned = true;
+            enabled = false;
+        }
     }
 }

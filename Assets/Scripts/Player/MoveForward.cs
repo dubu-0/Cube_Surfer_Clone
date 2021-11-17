@@ -10,5 +10,10 @@ namespace Player
         {
             transform.position += transform.forward * speed * Time.deltaTime;
         }
+
+        public void Stop()
+        {
+            speed = 0;
+        }
     }
 }

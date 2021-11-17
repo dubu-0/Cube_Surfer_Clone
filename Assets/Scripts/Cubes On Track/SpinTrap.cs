@@ -1,11 +1,14 @@
 using UnityEngine;
 
-public class SpinTrap : MonoBehaviour
+namespace Cubes_On_Track
 {
-    [SerializeField] private float speed = 10f;
-
-    private void Update()
+    public class SpinTrap : MonoBehaviour
     {
-        transform.Rotate(Vector3.up, speed * Time.deltaTime);
+        [SerializeField] private float speed = 10f;
+
+        private void Update()
+        {
+            transform.Rotate(Vector3.up, speed * Time.deltaTime);
+        }
     }
 }

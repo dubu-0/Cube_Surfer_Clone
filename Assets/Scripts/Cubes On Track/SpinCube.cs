@@ -1,15 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using Interfaces;
 using UnityEngine;
 
-public class SpinCube : MonoBehaviour
+namespace Cubes_On_Track
 {
-    private void OnTriggerEnter(Collider other)
+    public class SpinCube : MonoBehaviour
     {
-        var pickupable = other.gameObject.GetComponent<IPickupable>();
-        if (pickupable == null) return;
+        private void OnTriggerEnter(Collider other)
+        {
+            var pickupable = other.gameObject.GetComponent<IPickupable>();
+            if (pickupable == null) return;
         
-        pickupable.GO.transform.parent = transform;
+            pickupable.GO.transform.parent = transform;
+        }
     }
 }

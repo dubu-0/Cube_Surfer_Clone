@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using Interfaces;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,11 +12,9 @@ namespace Player
         
         private static IPickupable _lastPickup;
         private int _pickupsCount;
-        private Camera _main;
 
         private void OnEnable()
         {
-            _main = Camera.main;
             _lastPickup = GetComponentInChildren<IPickupable>();
             _pickupsCount = transform.childCount;
         }
@@ -31,8 +27,7 @@ namespace Player
         public void Add(IPickupable pickupable)
         {
             if (pickupable == null) return;
-
-            Handheld.Vibrate();
+       
             pickupSound.pitch = Random.Range(0.93f, 1.07f);
             pickupSound.Play();
             
@@ -48,8 +43,7 @@ namespace Player
         }
 
         public void UpdatePickups()
-        {
-            Handheld.Vibrate();
+        {       
             removeSound.pitch = Random.Range(0.93f, 1.07f);
             removeSound.PlayOneShot(removeSound.clip);
             
@@ -67,7 +61,8 @@ namespace Player
 
         private IEnumerator WaitAndRestartCurrentScene()
         {
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(2f);
+            Debug.Log("pickups");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
