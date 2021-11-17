@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 namespace Player
 {
+    [RequireComponent(typeof(BoxCollider))]
     public class PlayerPickups : MonoBehaviour
     {
         [SerializeField] private AudioSource pickupSound;
@@ -52,6 +53,10 @@ namespace Player
             if (_pickupsCount < 1)
             {
                 StartCoroutine(WaitAndRestartCurrentScene());
+                var colliders = GetComponents<BoxCollider>();
+                foreach (var boxCollider in colliders) 
+                    boxCollider.enabled = false;
+                transform.root.GetComponentInChildren<TrailRenderer>().emitting = false;
             }
             else
             {

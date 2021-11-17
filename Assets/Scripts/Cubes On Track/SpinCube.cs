@@ -8,7 +8,7 @@ namespace Cubes_On_Track
         private void OnTriggerEnter(Collider other)
         {
             var pickupable = other.gameObject.GetComponent<IPickupable>();
-            if (pickupable == null) return;
+            if (pickupable == null || pickupable.GO == null) return;
         
             pickupable.GO.transform.parent = transform;
         }

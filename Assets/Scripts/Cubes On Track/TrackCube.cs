@@ -27,7 +27,7 @@ namespace Cubes_On_Track
 
         private void OnTriggerEnter(Collider other)
         {
-            if ((other.gameObject.GetComponent<FinishPlatform>() == null) !=
+            if ((other.gameObject.GetComponent<FinishPlatform>() == null) ==
                 (other.gameObject.GetComponent<Ladder>() == null)) return;
 
             _parentedToOther = true;
