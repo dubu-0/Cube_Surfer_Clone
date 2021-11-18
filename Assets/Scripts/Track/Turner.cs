@@ -5,8 +5,7 @@ namespace Track
 {
     public class Turner : MonoBehaviour
     {
-        [SerializeField] private Vector3 direction;
-        [SerializeField] private global::Track.Track next;
+        [SerializeField] private Vector3 newRotationEuler;
 
         private bool _turned;
 
@@ -24,7 +23,10 @@ namespace Track
 
             playerRoot.localPosition = rootLocalPos;
             playerRoot.parent = null;
-            playerRoot.forward = direction;
+
+            var rotation = playerRoot.rotation;
+            rotation.eulerAngles = newRotationEuler;
+            playerRoot.rotation = rotation;
 
             _turned = true;
             enabled = false;
