@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Player
@@ -5,7 +6,12 @@ namespace Player
     public class MoveForward : MonoBehaviour
     {
         [SerializeField] private float speed;
-        
+
+        private void OnEnable()
+        {
+            Application.targetFrameRate = 500;
+        }
+
         private void Update()
         {
             transform.position += transform.forward * speed * Time.deltaTime;
