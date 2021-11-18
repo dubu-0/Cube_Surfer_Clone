@@ -1,13 +1,14 @@
-using System.Collections;
 using Interfaces;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Player
 {
     [RequireComponent(typeof(BoxCollider))]
     public class PlayerPickups : MonoBehaviour
     {
+        [SerializeField] private MoveForward player;
+        [SerializeField] private LoseScreen loseScreen;
+        [SerializeField] private WinScreen winScreen;
         [SerializeField] private AudioSource pickupSound;
         [SerializeField] private AudioSource removeSound;
         
@@ -52,23 +53,18 @@ namespace Player
 
             if (_pickupsCount < 1)
             {
-                StartCoroutine(WaitAndRestartCurrentScene());
+                if (!winScreen.enabled) loseScreen.ShowUp();
+
                 var colliders = GetComponents<BoxCollider>();
                 foreach (var boxCollider in colliders) 
                     boxCollider.enabled = false;
                 transform.root.GetComponentInChildren<TrailRenderer>().emitting = false;
+                player.Stop();
             }
             else
             {
                 _lastPickup = transform.GetChild(_pickupsCount - 1).GetComponent<IPickupable>();
             }
-        }
-
-        private IEnumerator WaitAndRestartCurrentScene()
-        {
-            yield return new WaitForSeconds(2f);
-            Debug.Log("pickups");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }

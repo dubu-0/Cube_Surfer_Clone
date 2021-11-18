@@ -1,13 +1,12 @@
-using System;
-using System.Collections;
 using Interfaces;
 using Player;
+using Score;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Ladder : MonoBehaviour
 {
     [SerializeField] private PlayerPickups pickups;
+    [SerializeField] private WinScreen winScreen;
 
     private IPickupable _bottomPickupable;
     private static int _scoreMultiplier;
@@ -24,18 +23,11 @@ public class Ladder : MonoBehaviour
         }
         else
         {
-            StartCoroutine(WaitAndLoadNextLevel());
+            ShowWinScreen();    
         }
     }
 
-    public int GetScore() => _scoreMultiplier;
-
-    public static IEnumerator WaitAndLoadNextLevel()
-    {
-        
-        yield return new WaitForSeconds(1f);
-        
-        if (SceneManager.GetActiveScene().buildIndex + 1 < SceneManager.sceneCountInBuildSettings)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
+    public static int GetScoreMultiplier() => _scoreMultiplier;
+    
+    public void ShowWinScreen() => winScreen.ShowUp(_scoreMultiplier, ScoreModel.Instance.CurrentValue);
 }

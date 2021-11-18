@@ -1,16 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
-using Interfaces;
 using Player;
+using Score;
 using UnityEngine;
 
 public class FinishPlatform : MonoBehaviour
 {
     [SerializeField] private MoveForward player;
+    [SerializeField] private WinScreen winScreen;
     
     private void OnTriggerEnter(Collider other)
     {
-        StartCoroutine(Ladder.WaitAndLoadNextLevel());
+        winScreen.ShowUp(Ladder.GetScoreMultiplier(), ScoreModel.Instance.CurrentValue);
         player.Stop();
     }
 }

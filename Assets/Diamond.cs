@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using Interfaces;
 using Score;
 using UnityEngine;

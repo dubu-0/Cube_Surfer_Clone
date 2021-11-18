@@ -5142,7 +5142,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: 625}
+  m_AnchoredPosition: {x: 0, y: 625}
   m_SizeDelta: {x: 396.6, y: 136.29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &149819501
@@ -5199,6 +5199,11 @@ PrefabInstance:
       propertyPath: pickups
       value: 
       objectReference: {fileID: 1989596688}
+    - target: {fileID: 178748221149180624, guid: 05dcbb43ed629e6459b2aaefa936d655,
+        type: 3}
+      propertyPath: winScreen
+      value: 
+      objectReference: {fileID: 1096531596}
     - target: {fileID: 178748221149180625, guid: 05dcbb43ed629e6459b2aaefa936d655,
         type: 3}
       propertyPath: m_RootOrder
@@ -12041,6 +12046,11 @@ PrefabInstance:
       propertyPath: pickups
       value: 
       objectReference: {fileID: 1989596688}
+    - target: {fileID: 178748221149180624, guid: 05dcbb43ed629e6459b2aaefa936d655,
+        type: 3}
+      propertyPath: winScreen
+      value: 
+      objectReference: {fileID: 1096531596}
     - target: {fileID: 178748221149180625, guid: 05dcbb43ed629e6459b2aaefa936d655,
         type: 3}
       propertyPath: m_RootOrder
@@ -12125,7 +12135,7 @@ GameObject:
   - component: {fileID: 386773264}
   - component: {fileID: 386773263}
   m_Layer: 5
-  m_Name: Multiplier
+  m_Name: Score Multiplier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12841,6 +12851,11 @@ PrefabInstance:
       propertyPath: pickups
       value: 
       objectReference: {fileID: 1989596688}
+    - target: {fileID: 178748221149180624, guid: 05dcbb43ed629e6459b2aaefa936d655,
+        type: 3}
+      propertyPath: winScreen
+      value: 
+      objectReference: {fileID: 1096531596}
     - target: {fileID: 178748221149180625, guid: 05dcbb43ed629e6459b2aaefa936d655,
         type: 3}
       propertyPath: m_RootOrder
@@ -13639,6 +13654,11 @@ PrefabInstance:
       propertyPath: pickups
       value: 
       objectReference: {fileID: 1989596688}
+    - target: {fileID: 178748221149180624, guid: 05dcbb43ed629e6459b2aaefa936d655,
+        type: 3}
+      propertyPath: winScreen
+      value: 
+      objectReference: {fileID: 1096531596}
     - target: {fileID: 178748221149180625, guid: 05dcbb43ed629e6459b2aaefa936d655,
         type: 3}
       propertyPath: m_RootOrder
@@ -14004,7 +14024,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 963194227}
-  m_PlaneDistance: 10
+  m_PlaneDistance: 1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -26949,6 +26969,11 @@ PrefabInstance:
       propertyPath: pickups
       value: 
       objectReference: {fileID: 1989596688}
+    - target: {fileID: 178748221149180624, guid: 05dcbb43ed629e6459b2aaefa936d655,
+        type: 3}
+      propertyPath: winScreen
+      value: 
+      objectReference: {fileID: 1096531596}
     - target: {fileID: 178748221149180625, guid: 05dcbb43ed629e6459b2aaefa936d655,
         type: 3}
       propertyPath: m_RootOrder
@@ -29647,7 +29672,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -0.02991476, y: -0.40451106, z: -0.013240197, w: 0.9139479}
+  m_LocalRotation: {x: -0.029914752, y: -0.40451106, z: -0.013240194, w: 0.9139479}
   m_LocalPosition: {x: 15.014456, y: 5.6391907, z: -31.426405}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -33750,6 +33775,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1096531595}
+  - component: {fileID: 1096531596}
   m_Layer: 5
   m_Name: WinScreen
   m_TagString: Untagged
@@ -33782,6 +33808,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1096531596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096531594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72c0b58eef976e4b9f3e99af88376b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreMultiplier: {fileID: 386773263}
+  currentScore: {fileID: 26887540}
 --- !u!1001 &1099318720
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40643,7 +40683,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1344413805}
-  m_LocalRotation: {x: -0.02991476, y: -0.40451106, z: -0.013240197, w: 0.9139479}
+  m_LocalRotation: {x: -0.029914752, y: -0.40451106, z: -0.013240194, w: 0.9139479}
   m_LocalPosition: {x: 15.014456, y: 5.6391907, z: -31.426405}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -49500,6 +49540,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1694950002}
+  - component: {fileID: 1694950003}
   m_Layer: 5
   m_Name: LoseScreen
   m_TagString: Untagged
@@ -49529,6 +49570,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1694950003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694950001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adc632ace50b4685ad5ac03e1df92c14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1695785857 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2216041906932718369, guid: 6882b7011295c3e4a994b3ca9ac229e6,
@@ -49784,6 +49837,11 @@ PrefabInstance:
       propertyPath: pickups
       value: 
       objectReference: {fileID: 1989596688}
+    - target: {fileID: 178748221149180624, guid: 05dcbb43ed629e6459b2aaefa936d655,
+        type: 3}
+      propertyPath: winScreen
+      value: 
+      objectReference: {fileID: 1096531596}
     - target: {fileID: 178748221149180625, guid: 05dcbb43ed629e6459b2aaefa936d655,
         type: 3}
       propertyPath: m_RootOrder
@@ -62695,6 +62753,11 @@ PrefabInstance:
       propertyPath: pickups
       value: 
       objectReference: {fileID: 1989596688}
+    - target: {fileID: 178748221149180624, guid: 05dcbb43ed629e6459b2aaefa936d655,
+        type: 3}
+      propertyPath: winScreen
+      value: 
+      objectReference: {fileID: 1096531596}
     - target: {fileID: 178748221149180625, guid: 05dcbb43ed629e6459b2aaefa936d655,
         type: 3}
       propertyPath: m_RootOrder
@@ -63123,6 +63186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1763171598}
+  winScreen: {fileID: 1096531596}
 --- !u!1001 &6066275693983567908
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -63155,6 +63219,21 @@ PrefabInstance:
       propertyPath: track
       value: 
       objectReference: {fileID: 49788649}
+    - target: {fileID: 6066275692749571636, guid: 7ff142fee64be4040a30567da2604a47,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1763171598}
+    - target: {fileID: 6066275692749571636, guid: 7ff142fee64be4040a30567da2604a47,
+        type: 3}
+      propertyPath: winScreen
+      value: 
+      objectReference: {fileID: 1096531596}
+    - target: {fileID: 6066275692749571636, guid: 7ff142fee64be4040a30567da2604a47,
+        type: 3}
+      propertyPath: loseScreen
+      value: 
+      objectReference: {fileID: 1694950003}
     - target: {fileID: 6066275692749571636, guid: 7ff142fee64be4040a30567da2604a47,
         type: 3}
       propertyPath: pickupSound
