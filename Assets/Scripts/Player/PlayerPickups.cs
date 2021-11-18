@@ -1,4 +1,5 @@
 using Interfaces;
+using UI.WInLose;
 using UnityEngine;
 
 namespace Player
@@ -53,7 +54,7 @@ namespace Player
 
             if (_pickupsCount < 1)
             {
-                if (!winScreen.enabled) loseScreen.ShowUp();
+                loseScreen.ShowUp();
 
                 var colliders = GetComponents<BoxCollider>();
                 foreach (var boxCollider in colliders) 

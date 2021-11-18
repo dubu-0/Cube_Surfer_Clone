@@ -1,6 +1,6 @@
 using System;
 
-namespace Score
+namespace UI.Score
 {
     public class ScoreModel
     {

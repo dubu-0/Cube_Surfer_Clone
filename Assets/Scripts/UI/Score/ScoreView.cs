@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Score
+namespace UI.Score
 {
     public class ScoreView : MonoBehaviour
     {
