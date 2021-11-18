@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3170695961115054f8d4e83430e28d6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 10
+  cost: 1
   pickupSound: {fileID: 1308329037}
 --- !u!95 &6960896230335015368
 Animator:

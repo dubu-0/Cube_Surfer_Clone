@@ -34,6 +34,6 @@ namespace Cubes_On_Track
 
         public static int GetScoreMultiplier() => _scoreMultiplier;
     
-        public void ShowWinScreen() => winScreen.ShowUp(_scoreMultiplier, ScoreModel.Instance.CurrentValue);
+        public void ShowWinScreen() => winScreen.ShowUp(_scoreMultiplier, CurrentScoreModel.Instance.CurrentValue);
     }
 }

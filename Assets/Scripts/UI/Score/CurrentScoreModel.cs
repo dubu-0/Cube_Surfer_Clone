@@ -2,11 +2,11 @@ using System;
 
 namespace UI.Score
 {
-    public class ScoreModel
+    public class CurrentScoreModel
     {
-        private ScoreModel() { }
+        private CurrentScoreModel() { }
 
-        public static ScoreModel Instance { get; } = new ScoreModel();
+        public static CurrentScoreModel Instance { get; } = new CurrentScoreModel();
         
         public int CurrentValue { get; private set; }
 

@@ -13,7 +13,7 @@ namespace Cubes_On_Track
     
         private void OnTriggerEnter(Collider other)
         {
-            winScreen.ShowUp(Ladder.GetScoreMultiplier(), ScoreModel.Instance.CurrentValue);
+            winScreen.ShowUp(Ladder.GetScoreMultiplier(), CurrentScoreModel.Instance.CurrentValue);
             loseScreen.gameObject.SetActive(false);
             player.Stop();
         }
