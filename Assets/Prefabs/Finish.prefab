@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &488268760291294421
+--- !u!1 &1661491885659862337
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 488268760291294425}
-  - component: {fileID: 488268760291294422}
-  - component: {fileID: 488268760291294423}
-  - component: {fileID: 488268760291294420}
-  - component: {fileID: 488268760291294424}
+  - component: {fileID: 1661491885659862338}
+  - component: {fileID: 1661491885659862350}
+  - component: {fileID: 1661491885659862349}
+  - component: {fileID: 1661491885659862348}
+  - component: {fileID: 6698237519366180347}
+  - component: {fileID: 1661491885659862342}
   m_Layer: 0
-  m_Name: Track
+  m_Name: Finish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &488268760291294425
+--- !u!4 &1661491885659862338
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 488268760291294421}
+  m_GameObject: {fileID: 1661491885659862337}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -83.9, z: 88.6}
-  m_LocalScale: {x: 5, y: 169.2, z: 245.14127}
+  m_LocalPosition: {x: -36, y: 7, z: 0}
+  m_LocalScale: {x: 7, y: 1, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &488268760291294422
+--- !u!33 &1661491885659862350
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 488268760291294421}
+  m_GameObject: {fileID: 1661491885659862337}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &488268760291294423
+--- !u!23 &1661491885659862349
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 488268760291294421}
+  m_GameObject: {fileID: 1661491885659862337}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 125a5ba87c89a9c488d78275e3f599ec, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,28 +84,44 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &488268760291294420
+--- !u!65 &1661491885659862348
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 488268760291294421}
+  m_GameObject: {fileID: 1661491885659862337}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.001, y: 0.001, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!65 &6698237519366180347
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661491885659862337}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &488268760291294424
+--- !u!114 &1661491885659862342
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 488268760291294421}
+  m_GameObject: {fileID: 1661491885659862337}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29351f5dbe6a80348890c666023044f7, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f3149ccd78e85046ada3652a2581df8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  winScreen: {fileID: 0}
+  loseScreen: {fileID: 0}
