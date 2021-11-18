@@ -32,11 +32,10 @@ public class Ladder : MonoBehaviour
 
     public static IEnumerator WaitAndLoadNextLevel()
     {
+        
         yield return new WaitForSeconds(1f);
-        Debug.Log("ladder");
+        
         if (SceneManager.GetActiveScene().buildIndex + 1 < SceneManager.sceneCountInBuildSettings)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);    
-        }
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

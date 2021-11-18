@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1308329032}
   - component: {fileID: 6960896230335015368}
   m_Layer: 0
-  m_Name: Cuboid
+  m_Name: Diamond
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
