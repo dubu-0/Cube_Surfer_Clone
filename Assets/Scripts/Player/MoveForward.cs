@@ -7,9 +7,9 @@ namespace Player
     {
         [SerializeField] private float speed;
 
-        private void OnEnable()
+        private void Start()
         {
-            Application.targetFrameRate = 500;
+            Application.targetFrameRate = 60;
         }
 
         private void Update()
